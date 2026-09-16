@@ -1,0 +1,50 @@
+/* Toàn bộ trang */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background-color: #f5f5f5;
+}
+
+
+/* Phần đầu trang */
+header {
+    text-align: center;
+    padding: 30px;
+    background-color:green;
+}
+
+
+/* Khu vực chứa tất cả sản phẩm */
+.products {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    padding: 40px;
+}
+
+
+/* Từng sản phẩm */
+.product {
+    width: 250px;
+    padding: 20px;
+    background-color: white;
+    text-align: center;
+    border-radius: 10px;
+}
+
+
+/* Ảnh sản phẩm */
+.product img {
+    width: 180px;
+    height: 180px;
+    object-fit: cover;
+}
+
+
+/* Nút mua hàng */
+.product button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
