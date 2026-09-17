@@ -41,7 +41,7 @@
 
 
             <!-- Số lượng trong kho -->
-            <p>Còn hàng: 10 cái</p>
+           <p>Còn hàng: <span id="stock">10</span> cái</p>
 
 
             <!-- Nhập số lượng muốn mua -->
@@ -65,6 +65,7 @@
             <button onclick="buyProduct()">
     Mua sản phẩm
 </button>
+<p id="result"></p>
 
 
             <br><br>
@@ -80,16 +81,47 @@
     </main>
     <script>
 
+    let price = 3000;
+    let stock = 10;
+
+
     function buyProduct() {
 
-        let quantity = document.getElementById("quantity").value;
+        let quantity = Number(
+            document.getElementById("quantity").value
+        );
 
-        let price = 3000;
+
+        if (quantity <= 0) {
+
+            document.getElementById("result").innerHTML =
+                "Vui lòng nhập số lượng.";
+
+            return;
+        }
+
+
+        if (quantity > stock) {
+
+            document.getElementById("result").innerHTML =
+                "Không đủ hàng trong kho.";
+
+            return;
+        }
+
 
         let total = quantity * price;
 
-        document.write("Bạn đã mua: " + quantity + " cái<br>");
-        document.write("Tổng tiền: " + total + "円");
+
+        stock = stock - quantity;
+
+
+        document.getElementById("stock").innerHTML = stock;
+
+
+        document.getElementById("result").innerHTML =
+            "Bạn đã mua " + quantity + " cái<br>" +
+            "Tổng tiền: " + total + "円";
 
     }
 
